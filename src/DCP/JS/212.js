@@ -1,5 +1,5 @@
 function getColumnId(columnNum) {
-	if (typeof columnNum !== 'numvber') { return; }
+	if (typeof columnNum !== 'number') { return; }
 
 	let columnId = '';
 

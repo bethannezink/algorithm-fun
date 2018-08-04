@@ -1,5 +1,9 @@
 function getStartingIndices(string, pattern) {
 	let patternLength = pattern.length;
+
+	if (patternLength > string.length) { return; }
+	if (pattern === string) { return [0]; }
+
 	let startingIndices = [];
 
 	for (let i = 0; i < string.length; i++) {

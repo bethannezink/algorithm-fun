@@ -7,6 +7,8 @@ String.prototype.reverse = function() {
 }
 
 function convertToBinary(decimalInput, binaryString = '') {
+  if (decimalInput === 0) { return '0' };
+
   if (decimalInput > 0) {
     binaryString += decimalInput % 2;
     decimalInput = Math.floor(decimalInput / 2);

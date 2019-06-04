@@ -1,0 +1,22 @@
+{
+  "name": "algorithm-fun",
+  "version": "1.0.0",
+  "description": "oft-working solutions to various problems I've encountered in my travels",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethannezink/algorithm-fun.git"
+  },
+  "author": "Bethanne Zink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bethannezink/algorithm-fun/issues"
+  },
+  "homepage": "https://github.com/bethannezink/algorithm-fun#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}

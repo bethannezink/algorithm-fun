@@ -31,3 +31,5 @@ function findUniqueIdWithBitwiseOperator (ids) {
 
   return uniqueDeliveryId;
 }
+
+module.exports = { findUniqueId, findUniqueIdWithBitwiseOperator }

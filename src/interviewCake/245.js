@@ -17,7 +17,7 @@ function findUniqueId (ids) {
 
   for (id in idHolder) {
     if (idHolder[id] === 1) {
-      return id;
+      return parseInt(id, 10);
     }
   }  
 }

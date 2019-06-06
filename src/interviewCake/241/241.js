@@ -14,3 +14,24 @@
 
 // Your output rectangle should use this format as well.
 
+function findOverlappingRectangle (rect1, rect2) {
+  let leftX, bottomY, width, height;
+
+  for (let i = rect1.bottomY; i < rect1.height; i++) {
+    if (rect2.bottomY === i) {
+      bottomY = i;
+    }
+  }
+
+  for (let j = rect2.bottomY; j < rect2.height; j++) {
+    if (rect1.bottomY === j) {
+      bottomY = j;
+    }
+  }
+
+  return {
+    bottomY
+  };
+}
+
+module.exports = { findOverlappingRectangle }

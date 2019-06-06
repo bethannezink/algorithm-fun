@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/bethannezink/algorithm-fun#readme",
   "devDependencies": {
+    "faker": "^4.1.0",
     "jest": "^24.8.0"
-  }
+  },
+  "dependencies": {}
 }

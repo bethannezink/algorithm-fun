@@ -17,21 +17,50 @@
 function findOverlappingRectangle (rect1, rect2) {
   let leftX, bottomY, width, height;
 
-  for (let i = rect1.bottomY; i < rect1.height; i++) {
+  for (let i = rect1.bottomY; i < (rect1.bottomY + rect1.height); i++) {
     if (rect2.bottomY === i) {
       bottomY = i;
     }
   }
 
-  for (let j = rect2.bottomY; j < rect2.height; j++) {
+  for (let j = rect2.bottomY; j < (rect2.bottomY + rect2.height); j++) {
     if (rect1.bottomY === j) {
       bottomY = j;
     }
   }
 
-  return {
-    bottomY
+  for (let k = rect1.leftX; k < (rect1.leftX + rect1.width); k++) {
+    if (rect2.leftX === k) {
+      leftX = k;
+    }
+  }
+
+  for (let l = rect2.leftX; l < (rect2.leftX + rect2.width); l++) {
+    if (rect1.leftX === l) {
+      leftX = l;
+    }
+  }
+
+  let rect1RightX = (rect1.leftX + rect1.width);
+  let rect2RightX = (rect2.leftX + rect2.width);
+  let overlappingRectRightX = Math.min(rect1RightX, rect2RightX);
+
+  width = Math.abs(leftX - overlappingRectRightX);
+
+  let rect1TopY = (rect1.bottomY + rect1.height);
+  let rect2TopY = (rect2.bottomY + rect2.height);
+  let overlappingRectTopY = Math.min(rect1TopY, rect2TopY);
+
+  height = Math.abs(bottomY - overlappingRectTopY);
+
+  const overlappingRect = {
+    leftX,
+    bottomY,
+    width,
+    height
   };
+
+  return overlappingRect;s
 }
 
 module.exports = { findOverlappingRectangle }

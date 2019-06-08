@@ -8,50 +8,21 @@
 // const my_rectangle = {
 //   leftX: 1,
 //   bottomY: 1,
-//   width: 6,
+//   width: 6,  
 //   height: 3
 // }
 
 // Your output rectangle should use this format as well.
 
 function findOverlappingRectangle (rect1, rect2) {
-  let leftX, bottomY, width, height;
+  const bottomY = findPoint(rect1.bottomY, rect1.height, rect2.bottomY) || findPoint(rect2.bottomY, rect2.height, rect1.bottomY);
+  const leftX = findPoint(rect1.leftX, rect1.width, rect2.leftX) || findPoint(rect2.leftX, rect2.width, rect1.leftX);
+  const width = findProperty(leftX, rect1.leftX, rect1.width, rect2.leftX, rect2.width);
+  const height = findProperty(bottomY, rect1.bottomY, rect1.height, rect2.bottomY, rect2.height);
 
-  for (let i = rect1.bottomY; i < (rect1.bottomY + rect1.height); i++) {
-    if (rect2.bottomY === i) {
-      bottomY = i;
-    }
+  if (bottomY === false || leftX === false) {
+    return false;
   }
-
-  for (let j = rect2.bottomY; j < (rect2.bottomY + rect2.height); j++) {
-    if (rect1.bottomY === j) {
-      bottomY = j;
-    }
-  }
-
-  for (let k = rect1.leftX; k < (rect1.leftX + rect1.width); k++) {
-    if (rect2.leftX === k) {
-      leftX = k;
-    }
-  }
-
-  for (let l = rect2.leftX; l < (rect2.leftX + rect2.width); l++) {
-    if (rect1.leftX === l) {
-      leftX = l;
-    }
-  }
-
-  let rect1RightX = (rect1.leftX + rect1.width);
-  let rect2RightX = (rect2.leftX + rect2.width);
-  let overlappingRectRightX = Math.min(rect1RightX, rect2RightX);
-
-  width = Math.abs(leftX - overlappingRectRightX);
-
-  let rect1TopY = (rect1.bottomY + rect1.height);
-  let rect2TopY = (rect2.bottomY + rect2.height);
-  let overlappingRectTopY = Math.min(rect1TopY, rect2TopY);
-
-  height = Math.abs(bottomY - overlappingRectTopY);
 
   const overlappingRect = {
     leftX,
@@ -60,7 +31,24 @@ function findOverlappingRectangle (rect1, rect2) {
     height
   };
 
-  return overlappingRect;s
+  return overlappingRect;
+}
+
+function findPoint (rect1Point, rect1Property, rect2Point) {
+  for (let i = rect1Point; i < (rect1Point + rect1Property); i++) {
+    if (rect2Point === i) {
+      return i;
+    }
+  }
+  return false;
+}
+
+function findProperty (point, rect1Point, rect1Property, rect2Point, rect2Property) {
+  let rect1OpposingPoint = (rect1Point + rect1Property);
+  let rect2OpposingPoint = (rect2Point + rect2Property);
+  let overlappingRectPoint = Math.min(rect1OpposingPoint, rect2OpposingPoint);
+
+  return Math.abs(point - overlappingRectPoint);
 }
 
 module.exports = { findOverlappingRectangle }

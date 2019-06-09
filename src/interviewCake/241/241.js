@@ -44,9 +44,9 @@ function findPoint (rect1Point, rect1Property, rect2Point) {
 }
 
 function findProperty (point, rect1Point, rect1Property, rect2Point, rect2Property) {
-  let rect1OpposingPoint = (rect1Point + rect1Property);
-  let rect2OpposingPoint = (rect2Point + rect2Property);
-  let overlappingRectPoint = Math.min(rect1OpposingPoint, rect2OpposingPoint);
+  let rect1OppositePoint = (rect1Point + rect1Property);
+  let rect2OppositePoint = (rect2Point + rect2Property);
+  let overlappingRectPoint = Math.min(rect1OppositePoint, rect2OppositePoint);
 
   return Math.abs(point - overlappingRectPoint);
 }

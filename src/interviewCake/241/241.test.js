@@ -117,3 +117,49 @@ test('returns false if rectangles do not overlap', () => {
 
   expect(findOverlappingRectangle(rect1, rect2)).toEqual(false);
 });
+
+test('finds overlapping rectangle when one rectangle is fully contained within another', () => {
+  const rect1 = {
+    leftX: 2,
+    bottomY: 2,
+    width: 4,
+    height: 4,
+  }
+  const rect2 = {
+    leftX: 2,
+    bottomY: 2,
+    width: 4,
+    height: 4,
+  }
+   const expectedOverlappingRect = {
+    leftX: 2,
+    bottomY: 2,
+    width: 4,
+    height: 4,
+  }
+
+  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+});
+
+test('finds overlapping rectangle when one rectangle is fully contained within another', () => {
+  const rect1 = {
+    leftX: 1,
+    bottomY: 1,
+    width: 6,
+    height: 6,
+  }
+  const rect2 = {
+    leftX: 3,
+    bottomY: 3,
+    width: 2,
+    height: 2,
+  }
+  const expectedOverlappingRect = {
+    leftX: 3,
+    bottomY: 3,
+    width: 2,
+    height: 2,
+  }
+
+  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+});

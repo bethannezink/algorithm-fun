@@ -1,4 +1,5 @@
-// You are a renowned thief who has recently switched from stealing precious metals to stealing cakes because of the insane profit margins. You end up hitting the jackpot, breaking into the world's largest privately owned stock of cakes—the vault of the Queen of England.
+// You are a renowned thief who has recently switched from stealing precious metals to stealing cakes because of the insane profit margins.
+// You end up hitting the jackpot, breaking into the world's largest privately owned stock of cakes—the vault of the Queen of England.
 // While Queen Elizabeth has a limited number of types of cake, she has an unlimited supply of each type.
 // Each type of cake has a weight and a value, stored in an object with two properties:
 // weight: the weight of the cake in kilograms
@@ -22,3 +23,30 @@
 // const capacity = 20;
 // maxDuffelBagValue(cakeTypes, capacity);
 // // Returns 555 (6 of the middle type of cake and 1 of the last type of cake)
+
+function getMaxDuffelBagValue (cakeTypes, capacity) {
+}
+
+function getMaxAtCapacity1(cakeTypes) {
+  let maxValueAtCapacity1 = 0;
+
+  cakeTypes.map(cake => {
+    if (cake.weight === 1) {
+      maxValueAtCapacity1 = Math.max(cake.value, maxValueAtCapacity1);
+    }
+  });
+  return maxValueAtCapacity1;
+}
+
+function getMaxAtCapacity2(cakeTypes) {
+  let maxValueAtCapacity2 = 0;
+
+  cakeTypes.map(cake => {
+    if (cake.weight <= 2) {
+      maxValueAtCapacity2 = Math.max(cake.value, maxValueAtCapacity2);
+    }
+  });
+  return maxValueAtCapacity2;
+}
+
+module.exports = { getMaxAtCapacity1, getMaxAtCapacity2, getMaxDuffelBagValue };

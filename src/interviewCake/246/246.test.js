@@ -1,6 +1,6 @@
-const { getMaxAtCapacity1, getMaxAtCapacity2, getMaxDuffelBagValue } = require('./246');
+const { getMaxDuffelBagValue } = require('./246');
 
-test('getMaxAtCapacity1', () => {
+test('get max values at capacity 1', () => {
 
   const cakeTypes = [
     { weight: 7, value: 160 },
@@ -8,12 +8,10 @@ test('getMaxAtCapacity1', () => {
     { weight: 2, value: 15 },
   ];
 
-  const capacity = 20;
-
-  expect(getMaxAtCapacity1(cakeTypes)).toBe(0);
+  expect(getMaxDuffelBagValue(cakeTypes, 1)).toBe(0);
 });
 
-test('getMaxAtCapacity2', () => {
+test('get max values at capacity 2', () => {
 
   const cakeTypes = [
     { weight: 7, value: 160 },
@@ -22,5 +20,5 @@ test('getMaxAtCapacity2', () => {
     { weight: 1, value: 30 },
   ];
 
-  expect(getMaxAtCapacity2(cakeTypes)).toBe(60);
+  expect(getMaxDuffelBagValue(cakeTypes, 2)).toBe(60);
 });

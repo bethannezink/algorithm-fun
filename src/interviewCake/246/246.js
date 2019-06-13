@@ -25,6 +25,29 @@
 // // Returns 555 (6 of the middle type of cake and 1 of the last type of cake)
 
 function getMaxDuffelBagValue (cakeTypes, capacity) {
+  // memoization
+  const maxValuesAtCapacities = new Array(capacity + 1).fill(0);
+
+  for (let currentCapacity = 0; currentCapacity <= capacity; currentCapacity++) {
+    let currentMaxValue = 0;
+
+    for (let j = 0; j < cakeTypes.length; j++) {
+      const cakeType = cakeTypes[j];
+
+      if (cakeType.weight === 0 && cakeType.value === 0) {
+        return Infinity;
+      }
+
+      if (cakeType.weight <= currentCapacity) {
+        const maxValueWithCurrentCake = cakeType.value + maxValuesAtCapacities[currentCapacity - cakeType.weight];
+        currentMaxValue = Math.max(maxValueWithCurrentCake, currentMaxValue);
+      }
+    }
+
+    maxValuesAtCapacities[currentCapacity] = currentMaxValue;
+  }
+
+  return maxValuesAtCapacities[capacity];
 }
 
 function getMaxAtCapacity1(cakeTypes) {

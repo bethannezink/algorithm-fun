@@ -1,4 +1,4 @@
-const { buildWordCloud } = require('./242');
+const { buildWordCloud } = require('./wordCloudData');
 
 const words = 'After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar.'
 

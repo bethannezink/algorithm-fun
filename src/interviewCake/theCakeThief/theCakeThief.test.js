@@ -1,4 +1,4 @@
-const { getMaxDuffelBagValue } = require('./246');
+const { getMaxDuffelBagValue } = require('./theCakeThief');
 
 test('get max values at capacity 1', () => {
 

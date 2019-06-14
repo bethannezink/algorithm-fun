@@ -14,12 +14,12 @@ const expectedWordCloud = {
   add: 2,
   milk: 1,
   and: 2,
-  eggs: 1,
+  eggs: 2,
   then: 1,
   flour: 1,
   sugar: 1
 }
 
 test('test test', () => {
-  expect(1).toBe(1);
+  expect(buildWordCloud(words)).toMatchObject(expectedWordCloud);
 });

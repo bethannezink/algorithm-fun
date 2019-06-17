@@ -17,3 +17,17 @@
 
 // deleteNode(b);
 
+function deleteNode(node) {
+  const nextNode = node.next;
+
+  // because we don't have access to list,
+  // modify node to match the next node and delete the next node instead
+  if (nextNode) {
+    node.value = nextNode.value;
+    node.next = nextNode.next;
+
+    nextNode.next = null;
+  } else {
+    node = null;
+  }
+}

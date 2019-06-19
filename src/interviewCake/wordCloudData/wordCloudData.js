@@ -25,7 +25,6 @@ function buildWordCloud (wordString) {
       } else {
         wordCloud[wordToAddToCloud] = 1;
       }
-      console.log(wordToAddToCloud);
       wordToAddToCloud = '';
     }
   }

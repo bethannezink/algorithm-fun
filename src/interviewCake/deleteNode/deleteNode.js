@@ -31,3 +31,5 @@ function deleteNode(node) {
     node = null;
   }
 }
+
+module.exports = { deleteNode };

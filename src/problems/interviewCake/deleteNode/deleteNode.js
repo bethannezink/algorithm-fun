@@ -28,7 +28,8 @@ function deleteNode(node) {
 
     nextNode.next = null;
   } else {
-    node = null;
+    // can't delete the last node
+    throw new Error('Cannot delete the last node in the list.');
   }
 }
 

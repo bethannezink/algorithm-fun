@@ -22,7 +22,7 @@ test('finds overlapping rectangle...', () => {
     height: 1
   };
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });
 
 test('finds another overlapping rectangle...', () => {
@@ -47,7 +47,7 @@ test('finds another overlapping rectangle...', () => {
     height: 2
   };
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });
 
 test('finds yet another overlapping rectangle...', () => {
@@ -72,7 +72,7 @@ test('finds yet another overlapping rectangle...', () => {
     height: 1
   };
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });
 
 test('finds overlapping rectangle when one rectangle is fully contained within another', () => {
@@ -97,7 +97,7 @@ test('finds overlapping rectangle when one rectangle is fully contained within a
     height: 2
   };
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });
 
 test('returns false if rectangles do not overlap', () => {
@@ -138,7 +138,7 @@ test('finds overlapping rectangle when one rectangle is fully contained within a
     height: 4,
   }
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });
 
 test('finds overlapping rectangle when one rectangle is fully contained within another', () => {
@@ -161,5 +161,5 @@ test('finds overlapping rectangle when one rectangle is fully contained within a
     height: 2,
   }
 
-  expect(findOverlappingRectangle(rect1, rect2)).toEqual(expectedOverlappingRect);
+  expect(findOverlappingRectangle(rect1, rect2)).toMatchObject(expectedOverlappingRect);
 });

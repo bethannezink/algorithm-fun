@@ -12,6 +12,8 @@ function convertToMilitary (timeString) {
   const hour = parseInt(timeString.substring(0, 2), 10);
   const militaryHour = timeUnit === 'PM' ? hour + 12 : hour;
 
+  if (hour === 12)
+
   militaryTimeString = `${militaryHour}${timeString.substring(2, 8)}`;
 
   return militaryTimeString;

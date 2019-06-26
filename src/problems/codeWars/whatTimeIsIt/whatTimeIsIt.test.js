@@ -12,10 +12,14 @@ test('converts simple AM date strings to military time', () => {
   expect(convertToMilitary(amDateString)).toEqual('11:01:23');
 });
 
-// test('converts noon date strings to military time', () => {
+test('converts noon date strings to military time', () => {
+  const noonDateString = '12:14:29AM';
 
-// });
+  expect(convertToMilitary(noonDateString)).toEqual('12:14:29');
+});
 
-// test('converts midnight date strings to military time', () => {
+test('converts midnight date strings to military time', () => {
+  const midnightDateString = '12:56:55PM';
 
-// });
+  expect(convertToMilitary(midnightDateString)).toEqual('12:14:29');
+});

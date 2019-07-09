@@ -13,13 +13,13 @@ test('converts simple AM date strings to military time', () => {
 });
 
 test('converts noon date strings to military time', () => {
-  const noonDateString = '12:14:29AM';
+  const noonDateString = '12:14:29PM';
 
   expect(convertToMilitary(noonDateString)).toEqual('12:14:29');
 });
 
 test('converts midnight date strings to military time', () => {
-  const midnightDateString = '12:56:55PM';
+  const midnightDateString = '12:56:55AM';
 
-  expect(convertToMilitary(midnightDateString)).toEqual('12:14:29');
+  expect(convertToMilitary(midnightDateString)).toEqual('00:56:55');
 });

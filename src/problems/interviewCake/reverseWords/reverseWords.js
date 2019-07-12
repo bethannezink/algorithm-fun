@@ -19,3 +19,29 @@
 // // Prints: 'steal pound cake'
 
 // When writing your function, assume the message contains only letters and spaces, and all words are separated by one space.
+
+function reverseWords (message) {
+  reverseChars(message, 0, message.length - 1);
+
+  let currentWordStart = 0;
+  for (let i = 0; i <= message.length; i++) {
+    if (i === message.length || message[i].charCodeAt(0) === 32) {
+      reverseChars(message, currentWordStart, i - 1);
+      currentWordStart = i + 1;
+    }
+  }
+  return message;
+}
+
+function reverseChars (message, start, end) {
+  while (start < end) {
+    let temp = message[start];
+    message[start] = message[end];
+    message[end] = temp;
+    start++;
+    end--;
+  }
+  return message;
+}
+
+module.exports = { reverseWords };

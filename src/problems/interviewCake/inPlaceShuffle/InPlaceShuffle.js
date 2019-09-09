@@ -4,15 +4,22 @@
 
 function shuffleArray (array) {
   for (let i = 0; i < array.length; i++) {
-    let randomeNewIndex = getRandom(0, array.length - 1);
+    let swappedIndices = [];
+    let randomNewIndex = getRandom(0, array.length - 1);
 
-    if (randomeNewIndex !== i) {
-      let temp = array[randomeNewIndex];
-      array[randomeNewIndex] = array[i];
+    while (swappedIndices.includes(randomNewIndex)) {
+      randomNewIndex = getRandom(0, array.length - 1);
+    }
+   
+    if (randomNewIndex !== i) {
+      let temp = array[randomNewIndex];
+      array[randomNewIndex] = array[i];
       array[i] = temp;
     }
+
+    swappedIndices.push(randomNewIndex);
   }
-  console.log(array);
+
   return array;
 }
 

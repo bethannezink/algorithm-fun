@@ -7,21 +7,25 @@ function sort (array) {
   const leftHalf = array.slice(0, middleIndex);
   const rightHalf = array.slice(middleIndex);
 
-  return merge(mergeSort(leftHalf), mergeSort(rightHalf));
+  return merge(sort(leftHalf), sort(rightHalf));
 }
 
-function merge (array1, array2) {
+function merge (leftArray, rightArray) {
   let mergedArray = [];
   let leftIndex = 0;
   let rightIndex = 0;
 
-  while (leftIndex < array1.length && rightIndex < array2.length) {
-    if (left[leftIndex] < right[rightIndex]) {
-      mergedArray.push(left[leftIndex]);
+  while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+    if (leftArray[leftIndex] < rightArray[rightIndex]) {
+      mergedArray.push(leftArray[leftIndex]);
       leftIndex++;
     } else {
-      mergedArray.push(right[rightIndex]);
+      mergedArray.push(rightArray[rightIndex]);
       rightIndex++;
     }
   }
+
+  return mergedArray.concat(leftArray.slice(leftIndex)).concat(rightArray.slice(rightIndex));
 }
+
+module.exports = { sort };

@@ -23,3 +23,5 @@ function isPalindromePermutation(string) {
   }
   return true;
 }
+
+module.exports = { isPalindromePermutation };

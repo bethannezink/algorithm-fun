@@ -1,19 +1,14 @@
 const { kthToLastNode } = require('./kthToLastNode');
+const { LinkedList, Node } = require('../../../dataStructures/linkedList/linkedList.js');
 
-// To Do: update using linkedlist class in /dataStructures
-class LinkedListNode {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+const linkedList = new LinkedList();
+const a = new Node('Angel Food');
+const b = new Node('Bundt');
+const c = new Node('Cheese');
+const d = new Node('Chocolate');
+const e = new Node('Boston Cream Pie');
 
-const a = new LinkedListNode('Angel Food');
-const b = new LinkedListNode('Bundt');
-const c = new LinkedListNode('Cheese');
-const d = new LinkedListNode('Chocolate');
-const e = new LinkedListNode('Boston Cream Pie');
-
+linkedList.head = a;
 a.next = b;
 b.next = c;
 c.next = d;

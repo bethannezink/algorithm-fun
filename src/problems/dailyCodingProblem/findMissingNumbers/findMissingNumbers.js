@@ -9,28 +9,32 @@
 // is there a way to do this via maths.
 
 function findMissingNumbers (unsortedNumArray, maxNumber = 9999999) {
-  unsortedNumArray.sort((a, b)  => a - b);
+  unsortedNumArray.sort((a, b) => a - b);
 
   let resultArray = [];
   if (unsortedNumArray[0] !== 1) {
     resultArray = findMissingSection(unsortedNumArray[0], 1);
+  } else {
+    resultArray.push(1);
   }
 
 
-  for (let i = 2; i < maxNumber; i++) { // do we want to start at 2?
+  for (let i = 1; i < maxNumber - 1; i++) {
     if (unsortedNumArray[i] - 1 !== unsortedNumArray[i - 1]) {
-      resultArray.concat(findMissingSection(unsortedNumArray[i], unsortedNumArray[i - 1]));
+      const test = findMissingSection(unsortedNumArray[i], unsortedNumArray[i - 1]); console.log(test);
+      resultArray = resultArray.concat(test);
+    } else {
+      resultArray.push(unsortedNumArray[i]);
     }
   }
 
   // ensure we get to 1 million
-  console.log(resultArray);
   return resultArray;
 }
 
 function findMissingSection (currentNumber, startingNumber) {
-  const diff = currentNumber - startingNumber;
-  return [...Array(diff).keys()].map(i => i + startingNumber); // better understand what's going on here
+  const diff = currentNumber - startingNumber; console.log(currentNumber, startingNumber);
+  return [...Array(diff).keys()].map(i => i + startingNumber + 1);
 }
 
 module.exports = { findMissingNumbers };

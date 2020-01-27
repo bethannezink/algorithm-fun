@@ -38,7 +38,7 @@ function getAllPossibleMoves(startingNumber, numberOfMoves, returnArray = '', fi
     returnArray += startingNumber;
 
     if (numberOfMoves === 0) {
-        finalArray.push(returnArray);
+        finalArray.push(returnArray.split('').map(num => parseInt(num, 10)));
     } else {
         const moveOptions = allPossibleMovesPerSpace[startingNumber];
 
@@ -48,7 +48,5 @@ function getAllPossibleMoves(startingNumber, numberOfMoves, returnArray = '', fi
     };
     return finalArray;
 }
-
-console.log(getAllPossibleMoves(0, 3));
 
 module.exports = { getAllPossibleMoves };

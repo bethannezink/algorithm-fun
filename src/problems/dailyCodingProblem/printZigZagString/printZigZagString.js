@@ -12,8 +12,7 @@ function printDiagonalString(string) {
   let diagonalString = '';
 
   for (let i = 0; i < string.length; i++) {
-    const whiteSpace = ' ' * i;
-    diagonalString += `${whiteSpace}${string.charAt*(i)}\n`;
+    diagonalString += `${string.charAt(i)}\n`.padStart(i + 2, ' ');
   }
 
   return diagonalString;
@@ -22,5 +21,9 @@ function printDiagonalString(string) {
 // function printZigZagString(string, numLines) {
 
 // }
+
+function getNumSpaces(currRow, numLines, desc) {
+  const maxWhiteSpace = (numLines - 1) * 2 - 1
+}
 
 module.exports = { printDiagonalString };

@@ -23,7 +23,11 @@ function printDiagonalString(string) {
 // }
 
 function getNumSpaces(currRow, numLines, desc) {
-  const maxWhiteSpace = (numLines - 1) * 2 - 1
+  const maxWhiteSpace = (numLines - 1) * 2 - 1;
+
+  if (desc) {
+    return maxWhiteSpace
+  }
 }
 
 module.exports = { printDiagonalString };

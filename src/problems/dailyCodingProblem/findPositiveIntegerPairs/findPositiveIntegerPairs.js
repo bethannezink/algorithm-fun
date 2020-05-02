@@ -5,43 +5,32 @@
 // a XOR b = N
 
 
-// calculate all addends -- return array of addend pairs for M
-// iterate over result of addend pairs and calc a XOR b
-// if calc for pair = N, filter into response array of pairs
-// return length of array --> correct return value?
-// To Do: understand XOR calc
 
+// def num_pairs(m, n):
+//     pairs = []
 
-// what is the big O of this? n / 2? (is that just n?)
-function getAllAddends(num) {
+//     for i in range(m // 2):
+//         if i ^ (m - i) == n:
+//             pairs.append((i, m - i))
+
+//     return pairs
+
+function findPositiveIntegerPairs(num1, num2) {
   let allAddends = [];
   let addend1 = 0;
 
-  while (addend1 <= num / 2) {
-    let addend2 = num - addend1;
+  while (addend1 <= num1 / 2) {
+    let addend2 = num1 - addend1;
+    const addendsXOrValue = addend1 ^ addend2;
 
-    allAddends.push([addend1, addend2]);
+    if (addendsXOrValue === num2) {
+      allAddends.push([addend1, addend2]);
+    }
+
     addend1++;
   }
 
   return allAddends;
 }
 
-// unneeded
-function getAllDivisors(num) {
-  let allDivisors = [];
-  let potentialDivisor = num;
-
-  while (potentialDivisor > 0) {
-    const isDivisor = num % potentialDivisor === 0;
-
-    if (isDivisor) {
-      allDivisors.push(potentialDivisor);
-    }
-    potentialDivisor--;
-  }
-
-  return allDivisors;
-}
-
-module.exports = { getAllAddends, getAllDivisors };
+module.exports = { findPositiveIntegerPairs };

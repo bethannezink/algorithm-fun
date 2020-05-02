@@ -4,17 +4,6 @@
 // a + b = M
 // a XOR b = N
 
-
-
-// def num_pairs(m, n):
-//     pairs = []
-
-//     for i in range(m // 2):
-//         if i ^ (m - i) == n:
-//             pairs.append((i, m - i))
-
-//     return pairs
-
 function findPositiveIntegerPairs(num1, num2) {
   let allAddends = [];
   let addend1 = 0;

@@ -5,7 +5,7 @@
 // a XOR b = N
 
 function findPositiveIntegerPairs(num1, num2) {
-  let allAddends = [];
+  let pairs = [];
   let addend1 = 0;
 
   while (addend1 <= num1 / 2) {
@@ -13,13 +13,15 @@ function findPositiveIntegerPairs(num1, num2) {
     const addendsXOrValue = addend1 ^ addend2;
 
     if (addendsXOrValue === num2) {
-      allAddends.push([addend1, addend2]);
+      pairs.push([addend1, addend2]);
     }
 
     addend1++;
   }
 
-  return allAddends;
+  return pairs;
 }
 
 module.exports = { findPositiveIntegerPairs };
+
+// O(M) time

@@ -4,8 +4,8 @@
 
 // For example, given k = 2 and the array [5, 2, 4, 0, 1], you should return 3.
 
-// To Do: 
-// iterate over array 
+// To Do:
+// iterate over array
 // greatest difference between consecutive elements in array, but only if first element is greater
 // create a data structure that storest the greatest differences between consecutive elements in array
 // do you have to use up the k buys/sells, or can you avoid?
@@ -15,7 +15,7 @@
 
 function findMaximumProfit (array, k) {
   let consecutiveDifferences = [];
-  
+
   for (let [index, element] of array.entries()) {
     const nextElement = array[index + 1];
 
@@ -23,8 +23,6 @@ function findMaximumProfit (array, k) {
       consecutiveDifferences.push(nextElement - element);
     }
   }
-
-  console.log(consecutiveDifferences);
 
   if (consecutiveDifferences.length <= k) {
     return consecutiveDifferences.reduce((element, total) => total += element);

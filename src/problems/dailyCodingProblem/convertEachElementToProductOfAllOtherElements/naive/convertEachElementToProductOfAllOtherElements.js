@@ -14,4 +14,22 @@ function convertToProductsOfRemainingArray(array) {
   return array.map(num => productOfArray / num);
 }
 
-module.exports = { convertToProductsOfRemainingArray };
+
+function convertToProductsOfRemainingArrayWithoutDivision(array) {
+  let productsArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let productOfArray = 1;
+
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j) {
+        productOfArray *= array[j];
+      }
+    }
+    productsArray.push(productOfArray);
+  }
+
+  return productsArray;
+}
+
+module.exports = { convertToProductsOfRemainingArray, convertToProductsOfRemainingArrayWithoutDivision };

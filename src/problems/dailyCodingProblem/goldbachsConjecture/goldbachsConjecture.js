@@ -28,9 +28,9 @@ function isPrime(number) {
 }
 
 function getPrimeAddendPair(number) {
-  let firstAddend = Math.floor(number / 2);
+  let firstAddend = 1;
 
-  while (firstAddend > 0) {
+  while (firstAddend <= Math.floor(number / 2)) {
     if (isPrime(firstAddend)) {
       const secondAddend = number - firstAddend;
       const secondAddendIsPrime = isPrime(secondAddend);
@@ -40,7 +40,7 @@ function getPrimeAddendPair(number) {
       }
     }
 
-    firstAddend--;
+    firstAddend++;
   }
 }
 

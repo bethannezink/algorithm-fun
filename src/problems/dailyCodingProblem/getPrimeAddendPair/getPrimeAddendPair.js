@@ -27,7 +27,7 @@ function isPrime(number) {
 }
 
 function getPrimeAddendPair(number) {
-  let firstAddend = 1;
+  let firstAddend = 2;
 
   while (firstAddend <= Math.floor(number / 2)) {
     if (isPrime(firstAddend)) {

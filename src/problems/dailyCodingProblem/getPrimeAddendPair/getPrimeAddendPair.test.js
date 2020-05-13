@@ -1,4 +1,4 @@
-const { getPrimeAddendPair } = require('./goldbachsConjecture');
+const { getPrimeAddendPair } = require('./getPrimeAddendPair');
 
 test('returns the lexicographically smaller pair when many pairs are valid', () => {
   expect(getPrimeAddendPair(4)).toMatchObject([1, 3]);

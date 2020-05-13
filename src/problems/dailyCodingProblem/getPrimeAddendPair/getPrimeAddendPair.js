@@ -13,7 +13,6 @@
 // TODO:
 // Big O:
 // Edge Cases: ensure input is even number > 2
-// Ensure you return the lexicographically smaller solution
 
 function isPrime(number) {
   let divisor = number - 1;

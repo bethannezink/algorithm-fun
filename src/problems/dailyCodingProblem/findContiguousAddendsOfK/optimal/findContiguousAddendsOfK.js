@@ -1,3 +1,5 @@
+// Big O: O(n)
+
 function findContiguousAddendsOfK(array, K) {
   let contiguousSums = {};
   let sum = 0;

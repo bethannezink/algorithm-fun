@@ -7,16 +7,15 @@ function swapElements(array, swapIndex) {
   const temp = array[swapIndex];
   array[swapIndex] = array[swapIndex - 1];
   array[swapIndex - 1] = temp;
-  console.log(array);
   return array;
 }
 
 function rotateList(array, k) {
   for (let i = k; i < array.length; i++) {
-    let counter = i;
-    while (counter > 0) {
-      swapElements(array, counter);
-      counter--;
+    let swapCounter = 0;
+    while (swapCounter < k) {
+      swapElements(array, i - swapCounter);
+      swapCounter++;
     }
   }
 

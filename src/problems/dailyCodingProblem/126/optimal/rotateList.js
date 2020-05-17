@@ -4,6 +4,9 @@
 // Try solving this without creating a copy of the list.
 // How many swap or move operations do you need?
 
+
+// Big O: O(n) -- each reversal take O(n) and we do a constant number of reversals (3)
+
 function reverseListByIndices(array, firstIndex, lastIndex) {
   while (firstIndex < lastIndex) {
     const temp = array[firstIndex];

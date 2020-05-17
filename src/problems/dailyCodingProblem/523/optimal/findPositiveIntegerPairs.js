@@ -1,3 +1,4 @@
+// Daily Coding Problem #523
 // Given integers M and N, write a program that counts how many positive integer
 // pairs (a, b) satisfy the following conditions:
 

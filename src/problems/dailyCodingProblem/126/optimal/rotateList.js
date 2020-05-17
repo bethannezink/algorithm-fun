@@ -4,18 +4,14 @@
 // Try solving this without creating a copy of the list.
 // How many swap or move operations do you need?
 
-function reverseEntireList(array) {
-  const maxSwaps = Math.floor(array.length / 2);
-  let swapCounter = 0;
+function reverseListByIndices(array, firstIndex, lastIndex) {
+  while (firstIndex < lastIndex) {
+    const temp = array[firstIndex];
+    array[firstIndex] = array[lastIndex];
+    array[lastIndex] = temp;
 
-  while (swapCounter < maxSwaps) {
-    const reverseElementIndex = array.length - swapCounter - 1;
-
-    const temp = array[swapCounter];
-    array[swapCounter] = array[reverseElementIndex];
-    array[reverseElementIndex] = temp;
-
-    swapCounter++;
+    firstIndex++;
+    lastIndex--;
   }
 
   return array;
@@ -23,6 +19,9 @@ function reverseEntireList(array) {
 
 
 function rotateList(array, k) {
+  reverseListByIndices(array, 0, k - 1);
+  reverseListByIndices(array, k, array.length - 1);
+  return reverseListByIndices(array, 0, array.length - 1);
 }
 
-module.exports = { reverseEntireList, rotateList };
+module.exports = { reverseListByIndices, rotateList };

@@ -32,13 +32,21 @@ function runLengthEncodeString(string) {
 
 function runLengthDecodeString(string) {
   let decodedString = '';
-  for (let i = 0; i < string.length; i += 2) {
-    let numCurrentLetter = parseInt(string.charAt(i), 10);
-    const currentLetter = string.charAt(i + 1);
+  let currentNumber = '';
+  for (let i = 0; i < string.length; i++) {
+    const isNumber = string.charAt(i).match(/[0-9]/g);
 
-    while (numCurrentLetter > 0) {
-      decodedString += currentLetter;
-      numCurrentLetter--;
+    if (isNumber) {
+      currentNumber += string.charAt(i);
+    } else {
+      let numCurrentLetter = parseInt(currentNumber, 10);
+      currentNumber = '';
+      const currentLetter = string.charAt(i);
+
+      while (numCurrentLetter > 0) {
+        decodedString += currentLetter;
+        numCurrentLetter--;
+      }
     }
   }
 

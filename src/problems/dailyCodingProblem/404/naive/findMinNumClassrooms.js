@@ -5,7 +5,7 @@
 
 // Big O: n^2
 
-function findMinNumClassrooms_FAIL(classArray){
+function findMinNumClassrooms(classArray){
   let roomCounter = 1;
   for (let i = 0; i < classArray.length; i++) {
     let [ currStartTime, currEndTime ] = classArray[i];
@@ -13,7 +13,7 @@ function findMinNumClassrooms_FAIL(classArray){
     for (let j = i + 1; j < classArray.length; j++) {
       let [ nextStartTime, nextEndTime ] = classArray[j];
 
-      if (currEndTime < nextStartTime) {
+      if (currEndTime < nextStartTime || currStartTime > nextEndTime) {
         roomCounter++;
         break;
       }

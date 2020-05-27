@@ -5,7 +5,6 @@
 
 // Big O:
 
-function findMinNumClassrooms(intervalsArray){
-}
+function findMinNumClassrooms(intervalsArray){}
 
 module.exports = { findMinNumClassrooms };

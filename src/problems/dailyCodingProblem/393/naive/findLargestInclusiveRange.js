@@ -7,36 +7,32 @@
 function findLargestInclusiveRange(array) {
   array.sort((a, b) => a - b);
 
+  let currentRange = 0
   let longestRange = 0;
-  let counter = 0;
-  let startingNum = array[0];
-  let longestStartingNum = array[0];
+  let firstNumInCurrentRange = array[0];
+  let firstNumInLongestRange = array[0];
 
   for (let i = 1; i < array.length; i++) {
     let currentNumber = array[i];
-    let lastNumber = array[i - 1];
+    let previousNumber = array[i - 1];
+    let isLastNumber = i === array.length - 1;
+    let isInclusive = previousNumber === currentNumber - 1;
 
-    if (lastNumber) {
-      if (lastNumber === currentNumber - 1) {
-        counter++;
+    if (isInclusive) {
+      currentRange++;
+    }
 
-        if (i === array.length - 1) {
-          if (longestRange < counter) {
-            longestRange = counter;
-            longestStartingNum = startingNum;
-          }
-        }
-      } else {
-        if (longestRange < counter) {
-          longestRange = counter;
-          longestStartingNum = startingNum;
-        }
-        counter = 0;
-        startingNum = currentNumber;
+    if (!isInclusive || isLastNumber) {
+      if (longestRange < currentRange) {
+        longestRange = currentRange;
+        firstNumInLongestRange = firstNumInCurrentRange;
       }
+      currentRange = 0;
+      firstNumInCurrentRange = currentNumber;
     }
   }
-  return longestRange > 0 ? [longestStartingNum, longestStartingNum + longestRange] : []
+
+  return longestRange > 0 ? [firstNumInLongestRange, firstNumInLongestRange + longestRange] : []
 }
 
 module.exports = { findLargestInclusiveRange };

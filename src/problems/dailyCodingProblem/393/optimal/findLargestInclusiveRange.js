@@ -18,23 +18,30 @@ function findLargestInclusiveRange(array) {
   let numberTracker = {};
 
   for (let arrayNum of array) {
-    numberTracker[arrayNum] = true;
+    numberTracker[arrayNum] = arrayNum;
   }
 
   let current;
-  let longestRange = 0;
+  let longestRange = [0, 0];
 
   for (let num in numberTracker) {
 
     if (!numberTracker[num - 1]) {
-      current = num + 1;
+      current = numberTracker[num] + 1;
 
       while(numberTracker[current]) {
         current++;
       }
-    }
 
+      const lengthLongestRange = longestRange[1] - longestRange[0];
+
+      if (current - numberTracker[num] > lengthLongestRange) {
+        longestRange = [numberTracker[num], current - 1];
+      }
+    }
   }
+
+  return longestRange;
 }
 
 module.exports = { findLargestInclusiveRange };

@@ -5,6 +5,17 @@
 
 // Big O:
 
-function findMinNumClassrooms(intervalsArray){}
+function findMinNumClassrooms(intervalsArray){
+  const schedule = {};
+  let counter = 0;
+
+  for (const [startTime, endTime] of intervalsArray) {
+    if (counter === 0) {
+      schedule[`classInterval${counter + 1}`] = [[startTime, endTime]];
+    }
+  }
+
+
+}
 
 module.exports = { findMinNumClassrooms };

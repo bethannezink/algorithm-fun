@@ -14,9 +14,15 @@ test('Returns the result orientation when the string starts and ends with the sa
   expect(dominoOrientation('R........R.R')).toEqual('RRRRRRRRRRRR');
 });
 
-test.skip('Returns the result orientation when the string starts and ends with different orientation', () => {
+test('Returns the result orientation when the string starts and ends with different orientation', () => {
   expect(dominoOrientation('L..R')).toEqual('LLRR');
-  expect(dominoOrientation('R.....L')).toEqual('RRR.LLL');
-  expect(dominoOrientation('R...L')).toEqual('RR.LL');
+  expect(dominoOrientation('R....L')).toEqual('RRRLLL');
+  expect(dominoOrientation('R......L')).toEqual('RRRRLLLL');
   expect(dominoOrientation('L........R')).toEqual('LLLLLRRRRR');
+});
+
+test('', () => {
+  expect(dominoOrientation('L..R..L')).toEqual('LLRRRLL');
+  expect(dominoOrientation('R....L....L')).toEqual('RRRLLLLLLL');
+  expect(dominoOrientation('R..LL..R')).toEqual('RRLLLRR');
 });

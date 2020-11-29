@@ -12,6 +12,16 @@ function findMinNumClassrooms(intervalsArray){
   for (const [startTime, endTime] of intervalsArray) {
     if (counter === 0) {
       schedule[`classInterval${counter + 1}`] = [[startTime, endTime]];
+    } else {
+
+      for (const classSchedule in schedule) {
+        for (const [scheduledStartTime, scheduledEndTime] of classSchedule) {
+          if (scheduledEndTime <= startTime) {
+            schedule.unshift([scheduledStartTime, scheduledEndTime]);
+          } else if (scheduledStartTime > )
+        }
+      }
+
     }
   }
 

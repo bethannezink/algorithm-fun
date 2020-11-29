@@ -5,6 +5,8 @@
 
 // Write a function that, given n, returns the number of rounds you'd expect to play until one coin remains.
 
+// Big O: O(log n)
+
 function numCoinFlipRounds (n) {
   const probabilityPerRound = 0.5;
   let roundCounter = 0;

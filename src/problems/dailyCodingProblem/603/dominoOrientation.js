@@ -25,7 +25,6 @@ function dominoOrientation (initialOrientation) {
     if (currentDominoOrientation === left || currentDominoOrientation === right) {
       if (indexFirstDomino === -1) {
         indexFirstDomino = i;
-        resultOrientation.push(initialOrientation.charAt(indexFirstDomino));
       } else {
         indexLastDomino = i;
 
@@ -33,7 +32,8 @@ function dominoOrientation (initialOrientation) {
         const orientationLastDomino = initialOrientation.charAt(indexLastDomino);
 
         if (orientationFirstDomino === orientationLastDomino) {
-          let indexPushedDomino = indexFirstDomino + 1;
+          let indexPushedDomino = indexFirstDomino;
+
           while (indexPushedDomino <= indexLastDomino) {
             resultOrientation.push(orientationFirstDomino)
             indexPushedDomino++;
@@ -41,7 +41,24 @@ function dominoOrientation (initialOrientation) {
 
           indexFirstDomino = indexLastDomino;
         } else {
+          const numDominoesInBetween = indexLastDomino - indexFirstDomino - 1;
 
+          if (numDominoesInBetween % 2 === 0) {
+            let numFirstDominoOrientation = numDominoesInBetween / 2;
+            let numLastDominoOrientation = numDominoesInBetween / 2;
+
+            while (numFirstDominoOrientation >= 0) {
+              resultOrientation.push(orientationFirstDomino)
+              numFirstDominoOrientation--;
+            }
+
+            while (numLastDominoOrientation >= 0) {
+              resultOrientation.push(orientationLastDomino)
+              numLastDominoOrientation--;
+            }
+          }
+
+          indexFirstDomino = indexLastDomino;
         }
       }
     }
